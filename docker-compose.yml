@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  tomcat:
+    build:
+      context:  ./.docker/tomcat
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "80:80"
+    volumes:
+      - ./target/ROOT.war:/usr/local/tomcat/webapps/ROOT.war
+    links:
+      - mysql
+
+  mysql:
+    build:
+      context: ./.docker/mysql
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.docker/mysql/db:/var/lib/mysql
+      - ./.docker/mysql/scripts/:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=root
+#
