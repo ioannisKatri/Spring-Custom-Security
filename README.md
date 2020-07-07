@@ -1,11 +1,13 @@
 # Spring-Custom-Security
 Proof of concept for spring custom security
 
---- Requirements
+## Requirements
 
-- maven
-- docker
+-maven
 
-Add to the hosts file -> ^^^^dev.security.com^^^^ OR change the default url inside to the preferred one -> .docker/tomcat/server.xml
+-docker
 
-Run on terminal -----> sh initialize.sh
+
+1. Add to the hosts file -> **dev.security.com** OR change the default url inside to the preferred one -> .docker/tomcat/server.xml
+
+1. Run on terminal the following script **sh initialize.sh**
